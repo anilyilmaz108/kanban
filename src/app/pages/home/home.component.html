@@ -1,0 +1,65 @@
+<div cdkDropListGroup>
+    <!--To Do-->
+    <div class="example-container">
+      <div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white">To do</h3>
+            <a href="#" class="text-sm mb-4 font-medium text-blue-600 hover:underline dark:text-blue-500">
+                Add a card
+            </a>
+       </div>
+       <div class="flow-root">
+          <div
+            cdkDropList
+            [cdkDropListData]="todo"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+          </div>    
+       </div>
+      </div>
+    </div>
+  
+    <!--In Progress-->
+    <div class="example-container">
+      <div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white">In Progress</h3>
+            <a href="#" class="text-sm mb-4 font-medium text-blue-600 hover:underline dark:text-blue-500">
+              Add a card
+            </a>
+       </div>
+       <div class="flow-root">
+          <div
+            cdkDropList
+            [cdkDropListData]="progress"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of progress" cdkDrag>{{item}}</div>
+          </div>
+       </div>
+      </div>
+    </div>
+
+    <!--Done-->  
+    <div class="example-container">
+      <div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Done</h3>
+            <a href="#" class="text-sm mb-4 font-medium text-blue-600 hover:underline dark:text-blue-500">
+              Add a card
+            </a>
+       </div>
+       <div class="flow-root">
+        <div
+          cdkDropList
+          [cdkDropListData]="done"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>  
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+  
