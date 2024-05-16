@@ -6,6 +6,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { PublicComponent } from './layouts/public/public.component';
 import { AuthGuard } from './helpers/auth.guard';
 import { RegisterComponent } from './pages/register/register.component';
+import { BlogComponent } from './pages/blog/blog.component';
+import { AnnouncementComponent } from './pages/announcement/announcement.component';
+import { NewBlogComponent } from './pages/blog/new-blog/new-blog/new-blog.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { BlogContentComponent } from './pages/blog/blog-content/blog-content.component';
 
 const routes: Routes = [
   {
@@ -13,7 +18,11 @@ const routes: Routes = [
     component: PrivateComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: HomeComponent }
+      { path: '', component: HomeComponent },
+      { path: 'blog', component: BlogComponent },
+      { path: 'new-blog', component: NewBlogComponent },
+      { path: 'blog/blog-content/:id', component: BlogContentComponent },
+      { path: 'announcement', component: AnnouncementComponent }
     ]
   },
   {
@@ -29,41 +38,9 @@ const routes: Routes = [
         component: RegisterComponent,
       },
     ],
-  }
+  },
+  {path: '**', component: NotFoundComponent}
 
- /** 
-  *   {
-    path: 'home',
-    component: PrivateComponent,
-    // canActivate: [AuthGuard],
-    children: [
-      { path: 'home', component: HomeComponent }
-    ]
-  },
-   {
-    path: 'login',
-    component: PublicComponent,
-    children: [
-      {
-        path: 'login',
-        component: LoginComponent,
-      },
-    ],
-  },
-  
-    {
-    path: '',
-    component: LoginComponent,
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-  },
-  */
-
-   
-
-  
 ];
 
 @NgModule({

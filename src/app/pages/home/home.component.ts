@@ -26,11 +26,11 @@ import { FormControl, FormGroup, ReactiveFormsModule, UntypedFormControl, Untype
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
-  contactsService = inject(TaskService);
+  taskService = inject(TaskService);
 
-  todo = this.contactsService.todo;
-  progress = this.contactsService.progress;
-  done = this.contactsService.done;
+  todo = this.taskService.todo;
+  progress = this.taskService.progress;
+  done = this.taskService.done;
   constructor() {}
 
   taskForm = new FormGroup({
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
 
   addNewTaskTodo() {  
     // console.log(this.taskForm.value.title);
-    this.contactsService.addTodo({
+    this.taskService.addTodo({
       id: this.taskForm.value.id,
       title: this.taskForm.value.title,
     });
@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
 
   addNewTaskProgress() {  
     // console.log(this.taskForm.value.title);
-    this.contactsService.addProgress({
+    this.taskService.addProgress({
       id: this.taskForm.value.id,
       title: this.taskForm.value.title,
     });
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
 
   addNewTaskDone() {  
     // console.log(this.taskForm.value.title);
-    this.contactsService.addDone({
+    this.taskService.addDone({
       id: this.taskForm.value.id,
       title: this.taskForm.value.title,
     });
@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
   /// Delete Task
   deleteTaskDone(id?:string){
     console.log(id);
-    this.contactsService.deleteDone(id!);
+    this.taskService.deleteDone(id!);
   }
 
   // todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];

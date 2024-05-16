@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { Router } from '@angular/router';
 import { initFlowbite } from 'flowbite';
 import { AuthService } from 'src/app/services/auth.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -14,15 +15,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-  constructor(){}
-  // authService = inject(AuthService);
+  constructor(private _snackBar: MatSnackBar){}
   fb = inject(FormBuilder);
   http = inject(HttpClient);
   router = inject(Router);
   authService = inject(AuthService);
 
-  email= '';
-  password='';
+  
   ngOnInit(): void {
     initFlowbite();
   }
@@ -43,6 +42,9 @@ export class LoginComponent implements OnInit {
       },
       error: (err) => {
         this.errorMessage = err.code;
+        this._snackBar.open('Geçersiz kullanıcı adı veya şifre','Tamam', {
+          duration: 3000
+        });
       }
     })
   }
