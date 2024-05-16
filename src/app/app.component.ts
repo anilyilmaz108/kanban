@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, inject } from '@angular/core';
 import { initFlowbite } from 'flowbite';
 
 @Component({
@@ -8,7 +9,7 @@ import { initFlowbite } from 'flowbite';
 })
 export class AppComponent implements OnInit{
   title = 'kanban';
-  
+  http = inject(HttpClient);
   ngOnInit(): void {
     initFlowbite();
   }

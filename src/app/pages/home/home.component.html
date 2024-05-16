@@ -53,30 +53,28 @@
 
     <!--Done-->  
     <div class="example-container">
-      <div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <div class="flex items-center justify-between mb-4">
-            <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Done</h3>
-            <a data-modal-target="crud-modal-3" data-modal-toggle="crud-modal-3" class="text-sm mb-4 font-medium text-blue-600 hover:underline dark:text-blue-500">
-              Add a card
-            </a>
-       </div>
-       <div class="flow-root">
-        <div
-          cdkDropList
-          [cdkDropListData]="done()"
-          class="example-list"
-          (cdkDropListDropped)="drop($event)">
-            <div class="example-box" *ngFor="let item of done()" cdkDrag>
-              {{item.title}}
-              <!--Delete Task-->
-              <!--(click)="deleteTaskDone(item.id?.toString())"-->
-              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01"/>
-              </svg>  
-            </div>  
+        <div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+          <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Done</h3>
+              <a data-modal-target="crud-modal-2" data-modal-toggle="crud-modal-2" class="text-sm mb-4 font-medium text-blue-600 hover:underline dark:text-blue-500">
+                Add a card
+              </a>
+         </div>
+         <div class="flow-root">
+            <div
+              cdkDropList
+              [cdkDropListData]="done()"
+              class="example-list"
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let item of done()" cdkDrag>
+                {{item.title}}
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M12 6h.01M12 12h.01M12 18h.01"/>
+                </svg>
+              </div>
+            </div>
+         </div>
         </div>
-       </div>
-      </div>
     </div>
   </div>
   
