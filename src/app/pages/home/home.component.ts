@@ -16,6 +16,7 @@ import { initFlowbite } from 'flowbite';
 import { TaskService } from 'src/app/services/task.service';
 import * as uuid from 'uuid';
 import { FormControl, FormGroup, ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -27,6 +28,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, UntypedFormControl, Untype
 })
 export class HomeComponent implements OnInit {
   taskService = inject(TaskService);
+  authService = inject(AuthService);
 
   todo = this.taskService.todo;
   progress = this.taskService.progress;
@@ -34,7 +36,7 @@ export class HomeComponent implements OnInit {
   constructor() {}
 
   taskForm = new FormGroup({
-    id: new FormControl(uuid.v4().toString(), {nonNullable: true}),
+    id: new FormControl(this.authService.firebaseAuth.currentUser?.uid.toString(), {nonNullable: true}),
     title: new FormControl('', {nonNullable: true}),
 });
 
@@ -42,7 +44,7 @@ export class HomeComponent implements OnInit {
   addNewTaskTodo() {  
     // console.log(this.taskForm.value.title);
     this.taskService.addTodo({
-      id: this.taskForm.value.id,
+      id: this.authService.firebaseAuth.currentUser?.uid.toString(),
       title: this.taskForm.value.title,
     });
     this.taskForm.reset();
@@ -51,7 +53,7 @@ export class HomeComponent implements OnInit {
   addNewTaskProgress() {  
     // console.log(this.taskForm.value.title);
     this.taskService.addProgress({
-      id: this.taskForm.value.id,
+      id: this.authService.firebaseAuth.currentUser?.uid.toString(),
       title: this.taskForm.value.title,
     });
     this.taskForm.reset();
@@ -60,7 +62,7 @@ export class HomeComponent implements OnInit {
   addNewTaskDone() {  
     // console.log(this.taskForm.value.title);
     this.taskService.addDone({
-      id: this.taskForm.value.id,
+      id: this.authService.firebaseAuth.currentUser?.uid.toString(),
       title: this.taskForm.value.title,
     });
     this.taskForm.reset();
@@ -68,6 +70,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     initFlowbite();
+    console.log('User', this.authService.firebaseAuth.currentUser?.uid.toString());
   }
 
   /// Delete Task

@@ -1,13 +1,13 @@
 <div
 class="ml-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-<ol class="relative border-s border-gray-200 dark:border-gray-700">
+<ol *ngFor="let item of announcement()" class="relative border-s border-gray-200 dark:border-gray-700">
   <li class="mb-10 ms-6">
     <span
       class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
     >
       <img
         class="rounded-full shadow-lg"
-        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        src="https://portfolio-9ab74.web.app/assets/image.jpeg"
         alt="Thomas Lean image"
       />
     </span>
@@ -17,68 +17,27 @@ class="ml-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-8
       <div class="items-center justify-between mb-3 sm:flex">
         <time
           class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0"
-          >2 hours ago</time
+          >{{item.date?.toDate() | date}}</time
         >
         <div
           class="text-sm font-normal text-gray-500 lex dark:text-gray-300"
         >
-          Thomas Lean commented on
+        {{item.title}}
           <a
-            href="#"
+            href="https://portfolio-9ab74.web.app/"
             class="font-semibold text-gray-900 dark:text-white hover:underline"
-            >Flowbite Pro</a
+            >Admin</a
           >
         </div>
       </div>
       <div
         class="p-3 text-xs italic font-normal text-gray-500 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300"
       >
-        Hi ya'll! I wanted to share a webinar zeroheight is having
-        regarding how to best measure your design system! This is the
-        second session of our new webinar series on #DesignSystems
-        discussions where we'll be speaking about Measurement.
+      {{item.description}}
       </div>
     </div>
   </li>
-  <li class="mb-10 ms-6">
-    <span
-      class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
-    >
-      <img
-        class="rounded-full shadow-lg"
-        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-        alt="Thomas Lean image"
-      />
-    </span>
-    <div
-      class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600"
-    >
-      <div class="items-center justify-between mb-3 sm:flex">
-        <time
-          class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0"
-          >2 hours ago</time
-        >
-        <div
-          class="text-sm font-normal text-gray-500 lex dark:text-gray-300"
-        >
-          Thomas Lean commented on
-          <a
-            href="#"
-            class="font-semibold text-gray-900 dark:text-white hover:underline"
-            >Flowbite Pro</a
-          >
-        </div>
-      </div>
-      <div
-        class="p-3 text-xs italic font-normal text-gray-500 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300"
-      >
-        Hi ya'll! I wanted to share a webinar zeroheight is having
-        regarding how to best measure your design system! This is the
-        second session of our new webinar series on #DesignSystems
-        discussions where we'll be speaking about Measurement.
-      </div>
-    </div>
-  </li>
+
   
 </ol>
 </div>

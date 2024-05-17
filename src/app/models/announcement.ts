@@ -1,10 +1,8 @@
 import { Timestamp } from "firebase/firestore";
 
-export class Blog {
+export class Announcement {
     id?: string;
     title?: string;
     description?: string;
     date?: Timestamp;
-    userEmail?: string;
-    userName?: string;
 }

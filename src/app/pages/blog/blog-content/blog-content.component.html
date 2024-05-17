@@ -4,6 +4,12 @@
 <div *ngFor="let item of blog()">
     <h1 class="font-bold" *ngIf="item.id === getID">{{item.title}}</h1>
     <p class="font-light" *ngIf="item.id === getID">{{item.date?.toDate()| date}}</p>
+    <!--İlerleyen zamanlarda Yazar adı ve maili de eklenebilir-->
+<!--    <div class="flex flex-row justify-around grid-flow-col gap-4">
+        <div><p  class="font-light" *ngIf="item.id === getID">{{item.userEmail}}</p ></div>
+        <div> <p  class="font-light" *ngIf="item.id === getID">{{item.userName}}</p ></div>
+        <div><p class="font-light" *ngIf="item.id === getID">{{item.date?.toDate()| date}}</p></div>
+      </div>-->
     <p class="pt-8" *ngIf="item.id === getID">{{item.description}}</p>
 </div>
     </div>
