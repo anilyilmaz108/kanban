@@ -1,6 +1,16 @@
 # Kanban
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+
+- Angular 17
+- Angular Material 17
+- Flowbite
+- Firebase
+- Tailwind CSS
+- Typed Forms
+- Inject
+- Signals
+- Standalone Components
 
 ## Development server
 
