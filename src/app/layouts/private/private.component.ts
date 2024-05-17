@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { HomeComponent } from 'src/app/pages/home/home.component';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({

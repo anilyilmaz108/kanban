@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, WritableSignal, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   CdkDragDrop,
@@ -8,14 +8,10 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { collection, getDocs } from 'firebase/firestore';
-import { Observable } from 'rxjs';
 import { Task } from 'src/app/models/task';
-import { Firestore, collectionData } from '@angular/fire/firestore';
 import { initFlowbite } from 'flowbite';
 import { TaskService } from 'src/app/services/task.service';
-import * as uuid from 'uuid';
-import { FormControl, FormGroup, ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -78,12 +74,6 @@ export class HomeComponent implements OnInit {
     console.log(id);
     this.taskService.deleteDone(id!);
   }
-
-  // todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
-
-  // progress = ['Code review'];
-
-  // done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
 
   drop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer === event.container) {
